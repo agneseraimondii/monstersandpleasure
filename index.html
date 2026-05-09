@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monsters & Pleasures — Workshop Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #E8D94A;
+    --pink: #C9567A;
+    --dark: #1C1218;
+    --muted-bg: #F2EBD9;
+    --text: #2A1D24;
+    --text-soft: #6B5060;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--muted-bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--pink);
+    padding: 52px 28px 44px;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 52px;
+    color: var(--yellow);
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+
+  .hero-meta {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* PLEASE READ ME */
+  .read-me {
+    background: var(--yellow);
+    padding: 32px 28px;
+    border-top: 3px solid var(--dark);
+    border-bottom: 3px solid var(--dark);
+  }
+
+  .read-me-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 14px;
+  }
+
+  .read-me p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--dark);
+  }
+
+  .read-me strong { font-weight: 600; }
+
+  /* SECTIONS */
+  .section {
+    padding: 40px 28px;
+    border-bottom: 1px solid rgba(28,18,24,0.1);
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--pink);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    color: var(--dark);
+  }
+
+  .lead {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text-soft);
+  }
+
+  /* FLOW */
+  .flow {
+    margin-top: 32px;
+  }
+
+  .flow-row {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 16px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(28,18,24,0.08);
+    align-items: start;
+  }
+  .flow-row:last-child { border-bottom: 1px solid rgba(28,18,24,0.08); }
+
+  .flow-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .flow-circle.open  { background: var(--pink); }
+  .flow-circle.mid   { background: var(--dark); }
+  .flow-circle.close { background: var(--pink); }
+
+  .flow-time {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .flow-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: var(--dark);
+  }
+
+  .flow-desc {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-soft);
+  }
+
+  /* STATIONS */
+  .stations-section {
+    background: var(--dark);
+    padding: 40px 28px;
+    border-bottom: 3px solid var(--pink);
+  }
+  .stations-section .section-label { color: rgba(232,217,74,0.6); }
+  .stations-section h2 { color: var(--yellow); }
+  .stations-section .lead { color: rgba(255,255,255,0.4); }
+
+  .station-list {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .station-item {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 16px 14px;
+    align-items: start;
+  }
+
+  .station-n {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 26px;
+    color: var(--yellow);
+    line-height: 1;
+  }
+
+  .station-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 3px;
+  }
+
+  .station-body {
+    font-size: 12px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ROTATION DIAGRAM */
+  .rotation-wrap {
+    margin-top: 28px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 28px 20px;
+    text-align: center;
+  }
+
+  .rotation-diagram {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 18px;
+  }
+
+  .rotation-ring {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px dashed rgba(255,255,255,0.15);
+    position: absolute;
+    top: 0; left: 0;
+    animation: spin 18s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  .bell-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    animation: ding 3s ease-in-out infinite;
+  }
+
+  @keyframes ding {
+    0%, 88%, 100% { transform: translate(-50%,-50%) rotate(0deg); }
+    91%  { transform: translate(-50%,-50%) rotate(-14deg); }
+    94%  { transform: translate(-50%,-50%) rotate(14deg); }
+    97%  { transform: translate(-50%,-50%) rotate(-7deg); }
+  }
+
+  .s-dot {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--pink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--yellow);
+  }
+  .s-dot.t { top: -4px;    left: 50%; transform: translateX(-50%); }
+  .s-dot.r { right: -4px;  top: 50%;  transform: translateY(-50%); }
+  .s-dot.b { bottom: -4px; left: 50%; transform: translateX(-50%); }
+  .s-dot.l { left: -4px;   top: 50%;  transform: translateY(-50%); }
+
+  .arrow-note {
+    font-size: 26px;
+    color: var(--yellow);
+    margin-bottom: 8px;
+    opacity: 0.7;
+  }
+
+  .rotation-caption {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7;
+  }
+  .rotation-caption strong { color: rgba(255,255,255,0.8); }
+
+  /* ROLES */
+  .roles-section {
+    padding: 40px 28px;
+  }
+
+  .role-cards {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .role-card {
+    border: 1px solid rgba(28,18,24,0.1);
+    border-radius: 8px;
+    padding: 18px 16px;
+    background: #fff;
+  }
+
+  .role-icon {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .role-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--pink);
+    margin-bottom: 5px;
+  }
+
+  .role-desc {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-soft);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    padding: 28px;
+    text-align: center;
+    border-top: 3px solid var(--pink);
+  }
+
+  footer p {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    line-height: 2;
+  }
+  footer span { color: rgba(232,217,74,0.5); }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <p class="hero-eyebrow">Workshop Guide</p>
+    <h1>Monsters<br>&amp; Pleasures</h1>
+    <p class="hero-meta">60 min · Outdoors · ~20 people</p>
+  </header>
+
+  <!-- PLEASE READ ME -->
+  <div class="read-me">
+    <p class="read-me-label">Please read me</p>
+    <p>Some of the conversations today could touch on <strong>intimacy, the body or vulnerable things.</strong> <br><br>
+    If at any moment you feel uncomfortable, that is completely okay. Just know you are <strong>never obligated to share</strong>, listening is also contributing.<br><br>
+    We're here together to imagine and <strong>play</strong> new futures </p>
+  </div>
+
+  <!-- STRUCTURE -->
+  <div class="section">
+    <p class="section-label">How it works</p>
+    <h2>Three moments,<br>60 minutes</h2>
+    <p class="lead">No preparation needed, just bring yourself and the willingness to have a real conversation.</p>
+
+    <div class="flow">
+      <div class="flow-row">
+        <div class="flow-circle open">⭕</div>
+        <div>
+          <div class="flow-time">10 min</div>
+          <div class="flow-title">Opening Circle</div>
+          <div class="flow-desc">We gather together. Facilitators introduce the intention of the workshop and create a shared, safe space.</div>
+        </div>
+      </div>
+
+      <div class="flow-row">
+        <div class="flow-circle mid">🃏</div>
+        <div>
+          <div class="flow-time">40 min</div>
+          <div class="flow-title">World Café + Card Game</div>
+          <div class="flow-desc">Groups of ~5 rotate through 4 stations. At each one a host guides a conversation using a themed card. When the bell rings, you rotate.</div>
+        </div>
+      </div>
+
+      <div class="flow-row">
+        <div class="flow-circle close">⭕</div>
+        <div>
+          <div class="flow-time">10 min</div>
+          <div class="flow-title">Closing Circle</div>
+          <div class="flow-desc">We come back together to harvest what emerged and close the space collectively.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATIONS -->
+  <div class="stations-section">
+    <p class="section-label">Main Activity</p>
+    <h2>The 4 stations</h2>
+    <p class="lead">Each station has a fixed host and one conversation card. You stay 10 minutes, then rotate clockwise when the bell rings.</p>
+
+    <div class="station-list">
+      <div class="station-item">
+        <div class="station-n">1</div>
+        <div>
+          <div class="station-title">Arrive at the station</div>
+          <div class="station-body">The host welcomes your group and introduces the card prompt.</div>
+        </div>
+      </div>
+      <div class="station-item">
+        <div class="station-n">2</div>
+        <div>
+          <div class="station-title">Conversation begins</div>
+          <div class="station-body">Discuss, respond, question. Share as much or as little as you like.</div>
+        </div>
+      </div>
+      <div class="station-item">
+        <div class="station-n">3</div>
+        <div>
+          <div class="station-title">Leave a trace</div>
+          <div class="station-body">The host writes down key words or ideas your group found meaningful — building a collective map.</div>
+        </div>
+      </div>
+      <div class="station-item">
+        <div class="station-n">4</div>
+        <div>
+          <div class="station-title">Bell rings → rotate ↻</div>
+          <div class="station-body">Move clockwise to the next station. After 4 rounds you've visited them all.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rotation-wrap">
+      <div class="rotation-diagram">
+        <div class="rotation-ring"></div>
+        <div class="bell-center">🔔</div>
+        <div class="s-dot t">1</div>
+        <div class="s-dot r">2</div>
+        <div class="s-dot b">3</div>
+        <div class="s-dot l">4</div>
+      </div>
+      <div class="arrow-note">↻</div>
+      <div class="rotation-caption">
+        When the <strong>bell rings</strong>, all groups<br>
+        rotate <strong>clockwise</strong> to the next station.
+      </div>
+    </div>
+  </div>
+
+  <!-- ROLES -->
+  <div class="roles-section">
+    <p class="section-label">Roles</p>
+    <h2>Who does what</h2>
+    <p class="lead">Most of you will be <strong>participants</strong>. Here's what each role means.</p>
+
+    <div class="role-cards">
+      <div class="role-card">
+        <div class="role-icon">🚶</div>
+        <div class="role-title">Participant</div>
+        <div class="role-desc">You move with your group from station to station. You listen, contribute, and help leave a trace of the conversation.</div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-icon">📜</div>
+        <div class="role-title">Station Host</div>
+        <div class="role-desc">Stays at the same station the whole time. Welcomes each new group, introduces the card, and listens carefully, acting as the <em>memory keeper</em> by noting key words and ideas on the paper.</div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-icon">🔔</div>
+        <div class="role-title">Facilitator</div>
+        <div class="role-desc">Moves across the whole space, supports hosts and participants, keeps time, and rings the bell to signal each rotation.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      Monsters &amp; Pleasures<br>
+      <span>IAAC &amp; Elisava</span><br>
+      Agnese Raimondi · Alejandra Cristina Rivera Zamacona
+    </p>
+  </footer>
+
+</body>
+</html>
